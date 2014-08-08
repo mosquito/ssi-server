@@ -32,7 +32,12 @@ def auto_index(path):
 @route('/<path:path>')
 def static(path=''):
     def get_included_content(webpath):
-        with open(os.path.join(ROOT_PATH, webpath), 'r') as f:
+        if webpath.startswith('/'):
+            path = os.path.join(ROOT_PATH, webpath.lstrip('/'))
+        else:
+            path = os.path.join(ROOT_PATH, webpath)
+
+        with open(path, 'r') as f:
             content = f.read()
             content = re.sub(
                 SSI_INCL_EXP,

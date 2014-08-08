@@ -8,7 +8,7 @@ except ImportError:
     from distutils.core import setup
 
 
-__version__ = '0.1.0'
+__version__ = '0.1.1'
 __author__ = 'Dmitry Orlov <me@mosquito.su>'
 
 _requirements = open('requirements.txt', 'rb').read().split('\n')
